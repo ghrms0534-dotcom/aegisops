@@ -1,0 +1,18 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+
+# Node / Vite
+node_modules/
+dist/
+build/
+
+# Local data and logs
+*.db
+logs/
+*.log
+

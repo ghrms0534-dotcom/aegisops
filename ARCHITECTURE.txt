@@ -1,0 +1,48 @@
+# Backend
+backend/
+├── app/
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── k8s.py
+│   │   ├── docker.py
+│   │   ├── deployments.py
+│   │   ├── git.py
+│   │   ├── monitoring.py
+│   │   ├── logs.py
+│   │   ├── alerts.py
+│   │   └── admin.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── security.py
+│   │   └── constants.py
+│   ├── db/
+│   │   ├── __init__.py
+│   │   ├── session.py
+│   │   └── seed.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   ├── cluster.py
+│   │   ├── container.py
+│   │   ├── deployment.py
+│   │   ├── alert.py
+│   │   └── audit.py
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   ├── auth.py
+│   │   ├── k8s.py
+│   │   ├── docker.py
+│   │   ├── deployment.py
+│   │   ├── alert.py
+│   │   └── user.py
+│   └── services/
+│       ├── __init__.py
+│       ├── k8s_service.py
+│       ├── docker_service.py
+│       ├── deploy_service.py
+│       └── log_service.py
+│   └── main.py
+├── requirements.txt
+└── .env
