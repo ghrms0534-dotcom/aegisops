@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { ChartPanel, DataTable, FilterSelect, PageToolbar, StatCard } from '../components/UI';
 import { Boxes, CheckCircle2, Cpu, Server } from 'lucide-react';
-import { k8sApi } from '../api/client';
+import { dashboardApi, k8sApi } from '../api/client';
 import { Cluster, Pod } from '../types';
 
 const Kubernetes = () => {
   const [clusters, setClusters] = useState<Cluster[]>([]);
   const [selectedCluster, setSelectedCluster] = useState<number | null>(null);
   const [pods, setPods] = useState<Pod[]>([]);
+  const [nodes, setNodes] = useState(0);
 
   useEffect(() => {
-    k8sApi.getClusters().then(res => setClusters(res.data));
+    k8sApi.getClusters().then(res => {
+      setClusters(res.data);
+      if (res.data[0]) setSelectedCluster(res.data[0].id);
+    });
+    dashboardApi.getOverview().then(res => setNodes(res.data.services.kubernetes.nodes)).catch(() => setNodes(0));
   }, []);
 
   useEffect(() => {
@@ -30,9 +35,9 @@ const Kubernetes = () => {
 
   return (
     <div className="space-y-6">
-      <div><h3 className="text-xl font-semibold text-white">Kubernetes Dashboard</h3><p className="mt-1 text-sm text-brand-muted">Cluster Workload와 Pod 상태를 관리합니다.</p></div>
+      <div><h3 className="text-xl font-semibold text-white">Infrastructure Cluster Management</h3><p className="mt-1 text-sm text-brand-muted">Provider: Kubernetes · Cluster Workload와 Pod 상태를 관리합니다.</p></div>
       <PageToolbar action={<button className="btn-primary text-xs">새로고침</button>}><FilterSelect><option>전체 Cluster</option>{clusters.map(c => <option key={c.id}>{c.name}</option>)}</FilterSelect><FilterSelect><option>전체 Namespace</option><option>default</option><option>kube-system</option></FilterSelect></PageToolbar>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"><StatCard label="Cluster" value={`${clusters.length}`} icon={Server} /><StatCard label="실행 중 Pod" value={`${pods.length || 24}`} icon={Boxes} /><StatCard label="정상 Workload" value="18 / 20" icon={CheckCircle2} /><StatCard label="평균 CPU" value="46%" icon={Cpu} /></div>
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"><StatCard label="Cluster" value={`${clusters.length}`} icon={Server} /><StatCard label="실행 중 Pod" value={`${pods.length}`} icon={Boxes} /><StatCard label="Node" value={`${nodes}`} icon={CheckCircle2} /><StatCard label="평균 CPU" value="46%" icon={Cpu} /></div>
       <div className="grid gap-4 md:grid-cols-2"><ChartPanel title="Cluster CPU 사용량" value="46%" percent={46} /><ChartPanel title="Cluster Memory 사용량" value="61%" percent={61} color="bg-violet-500" /></div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="card">

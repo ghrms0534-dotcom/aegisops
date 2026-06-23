@@ -6,7 +6,7 @@ const LogStream = () => {
   const [logs, setLogs] = useState<string[]>([]);
 
   useEffect(() => {
-    const ws = new WebSocket('ws://localhost:3300/ws/logs');
+    const ws = new WebSocket('ws://localhost:8000/ws/logs');
     ws.onmessage = (event) => {
       setLogs(prev => [...prev.slice(-49), event.data]);
     };

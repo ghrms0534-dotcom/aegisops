@@ -22,8 +22,8 @@ export const ChartPanel: React.FC<{ title: string; value: string; percent: numbe
   </div>
 );
 
-export const StatCard: React.FC<{ label: string, value: string, trend?: string, trendUp?: boolean, icon?: LucideIcon }> = ({ label, value, trend, trendUp, icon: Icon }) => (
-  <div className="card group hover:border-blue-500/40 hover:bg-slate-800/80">
+export const StatCard: React.FC<{ label: string, value: string, trend?: string, trendUp?: boolean, icon?: LucideIcon, detail?: string, highlight?: boolean, onClick?: () => void }> = ({ label, value, trend, trendUp, icon: Icon, detail, highlight, onClick }) => (
+  <div onClick={onClick} onKeyDown={event => { if (onClick && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); onClick(); } }} role={onClick ? 'button' : undefined} tabIndex={onClick ? 0 : undefined} className={`card group hover:border-blue-500/40 hover:bg-slate-800/80 ${highlight ? 'border-l-2 border-l-blue-400' : ''} ${onClick ? 'cursor-pointer focus:outline-none focus:ring-1 focus:ring-blue-500/50' : ''}`}>
     <div className="flex items-start justify-between gap-3">
       <p className="text-xs font-semibold uppercase tracking-wider text-brand-muted">{label}</p>
       {Icon && <span className="rounded-lg border border-blue-500/20 bg-blue-500/10 p-2 text-blue-400"><Icon size={17} /></span>}
@@ -36,6 +36,7 @@ export const StatCard: React.FC<{ label: string, value: string, trend?: string, 
         </span>
       )}
     </div>
+    {detail && <p className={`mt-3 truncate text-xs ${value === '연결 실패' ? 'text-red-400' : 'text-brand-muted'}`} title={detail}>{detail}</p>}
   </div>
 );
 

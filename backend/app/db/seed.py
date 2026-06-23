@@ -3,6 +3,7 @@ from app.db.session import SessionLocal
 from app.models.user import User, UserRole
 from app.models.cluster import Cluster, Namespace, Pod, Deployment
 from app.models.container import Container, Alert, AuditLog
+from app.models.operations import Agent, Workflow, Execution, SystemHealth, Event  # Register tables in Base metadata.
 from app.core.security import get_password_hash
 
 def seed_db():

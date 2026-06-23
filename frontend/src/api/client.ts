@@ -47,6 +47,7 @@ export const k8sApi = {
 
 export const dockerApi = {
   getContainers: () => api.get('/docker/containers'),
+  getLiveContainers: () => api.get('/docker/live/containers'),
   updateStatus: (id: number, status: string) => api.patch(`/docker/containers/${id}/status?status=${status}`),
 };
 
@@ -57,6 +58,7 @@ export const deployApi = {
 
 export const gitApi = {
   getRepositories: () => api.get('/git/repositories'),
+  getLiveStatus: () => api.get('/git/live/status'),
 };
 
 export const monitorApi = {
@@ -71,6 +73,36 @@ export const alertApi = {
 export const adminApi = {
   getUsers: () => api.get('/admin/users'),
   getAuditLogs: () => api.get('/admin/audit-logs'),
+};
+
+export const dashboardApi = {
+  getSummary: () => api.get('/dashboard/summary'),
+  getOverview: () => api.get('/dashboard/overview'),
+};
+
+export const integrationApi = {
+  getStatus: () => api.get('/integrations/status'),
+};
+
+export const cloudApi = {
+  getNcp: () => api.get('/cloud/ncp'),
+  getAws: () => api.get('/cloud/aws'),
+};
+
+export const githubApi = {
+  getStatus: () => api.get('/github/status'),
+  getRepositories: () => api.get('/github/repos'),
+};
+
+export const jenkinsApi = {
+  getStatus: () => api.get('/jenkins/status'),
+  getJobs: () => api.get('/jenkins/jobs'),
+  getBuilds: () => api.get('/jenkins/builds'),
+  getPipelines: () => api.get('/jenkins/pipelines'),
+};
+
+export const prometheusApi = {
+  getMetrics: () => api.get('/prometheus/metrics'),
 };
 
 export default api;
