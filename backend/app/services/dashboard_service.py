@@ -53,7 +53,7 @@ class DashboardService:
                 "docker": {"status": summary["containers"]["status"], "containers_running": summary["containers"]["running"]},
                 "kubernetes": {"status": summary["pods"]["status"], "pods_running": summary["pods"]["running"], "nodes": summary["cluster"]["nodes"]},
                 "jenkins": {"status": "warning" if any(build["result"] == "FAILURE" for build in builds) else "healthy", "jobs_total": len(jobs), "last_build_result": builds[-1]["result"] if builds else "UNKNOWN"},
-                "cloud": {"status": "mock", "provider": f'{ncp["provider"]}/{aws["provider"]} mock'},
+                "cloud": {"status": "demo", "provider": f'{ncp["provider"]}/{aws["provider"]} demo'},
             },
         }
 

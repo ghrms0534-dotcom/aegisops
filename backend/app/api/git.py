@@ -9,7 +9,7 @@ class RepoInfo(BaseModel):
 
 router = APIRouter()
 
-# Mock data since Git is external
+# Demo data since Git is external
 MOCK_REPOS = [
     {"name": "aegis-core", "branch": "main", "last_commit": "feat: add k8s orchestrator", "pr_status": "Open"},
     {"name": "aegis-frontend", "branch": "develop", "last_commit": "fix: sidebar layout", "pr_status": "Merged"},

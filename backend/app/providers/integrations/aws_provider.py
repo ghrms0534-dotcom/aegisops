@@ -3,7 +3,7 @@ class AwsProvider:
         return {
             "name": "AWS",
             "status": "ok",
-            "summary": {"configured": True, "mode": "mock", "live_connection": False},
+            "summary": {"configured": True, "mode": "demo", "live_connection": False},
             "error": None,
         }
 
@@ -11,7 +11,7 @@ class AwsProvider:
         return {
             "provider": "AWS",
             "type": "Cloud Provider",
-            "status": "Mock Mode",
+            "status": "Demo Mode",
             "live_connection": False,
             "region": "ap-northeast-2",
             "ec2": {"total": 5, "running": 4, "stopped": 1},
@@ -20,6 +20,6 @@ class AwsProvider:
             "elastic_ips": 1,
             "load_balancers": 1,
             "eks_clusters": 0,
-            "last_sync": "Mock data",
+            "last_sync": "Demo data",
             "note": "Demo Provider - No Live AWS Connection",
         }

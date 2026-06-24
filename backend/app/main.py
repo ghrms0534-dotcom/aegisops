@@ -1,6 +1,6 @@
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import auth, k8s, docker, deployments, git, monitoring, alerts, admin, runtime, integrations, cloud, github, prometheus, jenkins
+from app.api import auth, k8s, docker, deployments, git, monitoring, alerts, admin, runtime, integrations, cloud, github, prometheus, jenkins, actions, ai
 from app.db.session import Base, engine, migrate_sqlite_schema
 from app.db.seed import seed_db
 from app.websocket.dashboard_events import dashboard_event_manager, timestamp
@@ -36,6 +36,8 @@ app.include_router(cloud.router, prefix="/api/cloud", tags=["Cloud"])
 app.include_router(github.router, prefix="/api/github", tags=["GitHub"])
 app.include_router(prometheus.router, prefix="/api/prometheus", tags=["Prometheus"])
 app.include_router(jenkins.router, prefix="/api/jenkins", tags=["Jenkins"])
+app.include_router(actions.router, prefix="/api/actions", tags=["Actions"])
+app.include_router(ai.router, prefix="/api/ai", tags=["AI"])
 
 @app.get("/")
 async def root():

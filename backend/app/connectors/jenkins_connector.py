@@ -3,9 +3,9 @@ class JenkinsConnector:
         return {
             "service": "jenkins",
             "status": "connected",
-            "mode": "mock",
-            "base_url": "mock://jenkins",
-            "message": "Jenkins connector is running in mock mode",
+            "mode": "demo",
+            "base_url": "demo://jenkins",
+            "message": "Jenkins connector is running in demo mode",
         }
 
     def get_jobs(self) -> dict:

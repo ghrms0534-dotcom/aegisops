@@ -3,7 +3,7 @@ class NcpProvider:
         return {
             "name": "NCP",
             "status": "ok",
-            "summary": {"configured": True, "mode": "mock", "live_connection": False},
+            "summary": {"configured": True, "mode": "demo", "live_connection": False},
             "error": None,
         }
 
@@ -11,7 +11,7 @@ class NcpProvider:
         return {
             "provider": "NCP",
             "type": "Cloud Provider",
-            "status": "Mock Mode",
+            "status": "Demo Mode",
             "live_connection": False,
             "region": "KR-2",
             "servers": {"total": 3, "running": 2, "stopped": 1},
@@ -19,6 +19,6 @@ class NcpProvider:
             "subnets": 2,
             "public_ips": 1,
             "load_balancers": 0,
-            "last_sync": "Mock data",
+            "last_sync": "Demo data",
             "note": "Demo Provider - No Live NCP Connection",
         }

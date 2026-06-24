@@ -105,4 +105,12 @@ export const prometheusApi = {
   getMetrics: () => api.get('/prometheus/metrics'),
 };
 
+export const actionApi = {
+  simulate: (data: { actionType: string; targetType: string; targetName: string; namespace?: string }) => api.post('/actions/simulate', data),
+};
+
+export const aiApi = {
+  analyze: (message: string, context?: unknown, history?: unknown) => api.post('/ai/analyze', { message, context, history }),
+};
+
 export default api;

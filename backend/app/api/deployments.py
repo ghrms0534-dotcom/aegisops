@@ -12,5 +12,5 @@ def get_deployment_history(db: Session = Depends(get_db)):
 
 @router.post("/trigger")
 def trigger_deployment(app_name: str, version: str, db: Session = Depends(get_db)):
-    # Mock trigger - in real world this would call a CI/CD pipeline
+    # Demo trigger - in real world this would call a CI/CD pipeline
     return {"message": f"Deployment of {app_name} version {version} triggered successfully"}

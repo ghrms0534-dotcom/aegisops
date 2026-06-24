@@ -10,7 +10,7 @@ EVENTS = [
     {"service": "docker", "status": "healthy", "severity": "info", "message": "Docker containers updated", "data": {"containers_running": 4}},
     {"service": "kubernetes", "status": "healthy", "severity": "info", "message": "Kubernetes pods updated", "data": {"pods_running": 12, "nodes": 3}},
     {"service": "jenkins", "status": "warning", "severity": "warning", "message": "Jenkins build failed", "data": {"last_build_result": "FAILURE", "job": "aegisops-deploy-prod"}},
-    {"service": "cloud", "status": "mock", "severity": "info", "message": "Cloud mock resources updated", "data": {"provider": "NCP/AWS mock"}},
+    {"service": "cloud", "status": "demo", "severity": "info", "message": "Cloud demo resources updated", "data": {"provider": "NCP/AWS demo"}},
     {"service": "argocd", "status": "degraded", "severity": "error", "message": "ArgoCD application is out of sync", "data": {"application": "aegisops-backend", "sync_status": "OutOfSync", "health_status": "Degraded"}},
 ]
 
