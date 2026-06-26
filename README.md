@@ -8,6 +8,8 @@ AegisOps는 이러한 문제를 해결하기 위해 **운영 상태 통합 Dashb
 
 ---
 
+<img width="1900" height="866" alt="aegisops" src="https://github.com/user-attachments/assets/484b2343-5779-437c-a569-b1976b590c6f" />
+
 ## 프로젝트 목표
 
 기존 DevOps 운영 환경의 문제점
